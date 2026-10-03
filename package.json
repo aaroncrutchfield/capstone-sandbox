@@ -1,0 +1,8 @@
+{
+  "name": "capstone-sandbox",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny repo for running real plans through custom-claude-ui end to end: Go, waves, capstone, and Land.",
+  "scripts": { "test": "node --test" }
+}
