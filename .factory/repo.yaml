@@ -1,0 +1,10 @@
+# The factory's settings for this repo; see docs/adr/0002-repo-setup-and-shipping.md in factory-cli.
+
+gate:
+  - name: test
+    run: npm run test
+ticketPattern: "[A-Z]+-\\d+"
+branchPrefixes:
+  - agent
+  - claude
+approvals: 0
