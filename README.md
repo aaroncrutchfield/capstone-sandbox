@@ -15,3 +15,4 @@ import { farewell } from './src/farewell.js'
 - `farewell(name)` returns the sign-off, capitalizing the name: `farewell('ada lovelace')` gives `'Goodbye, Ada Lovelace!'`.
 
 `greetPerson({ first, last })` is the greeting variant that takes a person object.
+- `shout(text)` upper-cases and exclaims: `shout('hi')` gives `'HI!'`.
