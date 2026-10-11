@@ -1,0 +1,11 @@
+milestone: demo5
+acceptance: SAN-8
+base:
+  ticket: ''
+  type: feat
+  slug: capitalize-words
+  brief: .factory/runs/demo5/base.md
+  owns: ['src/capitalize.js', 'test/capitalize.test.js', 'docs/behaviors/words.md']
+slices: []
+builder: { model: claude-opus-5-5, effort: low, budgetUsd: 1.5 }
+reviewer: { model: claude-opus-5-5, effort: medium, budgetUsd: 1 }

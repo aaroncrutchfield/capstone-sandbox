@@ -11,3 +11,8 @@ jobs:
         with:
           node-version: 22
       - run: npm run test
+      - name: sitting switch
+        if: vars.DEMO5_CI_FAIL == '1'
+        run: |
+          echo "sitting-switch: DEMO5_CI_FAIL is on; the M4 sitting holds CI red until the owner turns it off"
+          exit 1
