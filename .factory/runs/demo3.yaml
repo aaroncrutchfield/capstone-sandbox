@@ -1,13 +1,25 @@
 milestone: demo3
 acceptance: SAN-1
 base:
-  ticket: ''
+  ticket: 'SAN-2'
   type: feat
   slug: split-words
   brief: .factory/runs/demo3/base.md
-  owns: ['src/words.js', 'test/words.test.js', 'docs/behaviors/words.md']
+  owns: [ 'src/words.js', 'test/words.test.js', 'docs/behaviors/words.md' ]
 slices:
-  - { ticket: '', type: feat, slug: count-words, brief: .factory/runs/demo3/count.md, owns: ['src/count.js', 'test/count.test.js'] }
-  - { ticket: '', type: feat, slug: longest-word, brief: .factory/runs/demo3/longest.md, owns: ['src/longest.js', 'test/longest.test.js'] }
+  - {
+      ticket: 'SAN-3',
+      type: feat,
+      slug: count-words,
+      brief: .factory/runs/demo3/count.md,
+      owns: [ 'src/count.js', 'test/count.test.js' ]
+    }
+  - {
+      ticket: 'SAN-4',
+      type: feat,
+      slug: longest-word,
+      brief: .factory/runs/demo3/longest.md,
+      owns: [ 'src/longest.js', 'test/longest.test.js' ]
+    }
 builder: { model: claude-opus-5-5, effort: low, budgetUsd: 3 }
 reviewer: { model: claude-opus-5-5, effort: medium, budgetUsd: 3 }
