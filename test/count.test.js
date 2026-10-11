@@ -10,3 +10,10 @@ test('WORDS-002 an empty or blank string has 0 words', () => {
   assert.equal(countWords(''), 0);
   assert.equal(countWords('   \n\t '), 0);
 });
+
+test('WORDS-003 throws a TypeError for a non-string, then works with a string', () => {
+  for (const bad of [null, undefined, 42, ['a b'], {}]) {
+    assert.throws(() => countWords(bad), { name: 'TypeError', message: 'countWords needs a string' });
+  }
+  assert.equal(countWords('still works'), 2);
+});
