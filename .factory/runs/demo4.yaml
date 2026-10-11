@@ -1,0 +1,11 @@
+milestone: demo4
+acceptance: SAN-6
+base:
+  ticket: ''
+  type: feat
+  slug: reverse-words
+  brief: .factory/runs/demo4/base.md
+  owns: ['src/reverse.js', 'test/reverse.test.js', 'docs/behaviors/words.md']
+slices: []
+builder: { model: claude-opus-5-5, effort: low, budgetUsd: 1.5 }
+reviewer: { model: claude-opus-5-5, effort: medium, budgetUsd: 1 }
