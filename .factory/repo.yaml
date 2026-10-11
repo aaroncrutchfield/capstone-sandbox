@@ -8,3 +8,4 @@ branchPrefixes:
   - agent
   - claude
 approvals: 0
+tracker: { kind: linear, team: SAN }
