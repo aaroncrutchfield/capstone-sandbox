@@ -16,3 +16,8 @@ jobs:
         run: |
           echo "sitting-switch: DEMO4_CI_FAIL is on; the M4 sitting holds CI red until the owner turns it off"
           exit 1
+      - name: sitting wait
+        if: vars.SITTING_CI_WAIT == '1'
+        run: |
+          echo "sitting-wait: SITTING_CI_WAIT is on; CI holds 10 minutes so the M5 sitting can commit while a slice waits on CI"
+          sleep 600
