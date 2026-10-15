@@ -1,28 +1,28 @@
 milestone: demo9
 acceptance: SAN-20
 base:
-  ticket: ''
+  ticket: 'SAN-27'
   type: feat
   slug: capitalize-words
   brief: .factory/runs/demo9/base.md
   owns: [ 'src/capitalize.js', 'test/capitalize.test.js', 'docs/behaviors/words.md' ]
 slices:
   - {
-      ticket: '',
+      ticket: 'SAN-28',
       type: feat,
       slug: title-case,
       brief: .factory/runs/demo9/title.md,
       owns: [ 'src/title.js', 'test/title.test.js' ]
     }
   - {
-      ticket: '',
+      ticket: 'SAN-29',
       type: feat,
       slug: truncate-words,
       brief: .factory/runs/demo9/truncate.md,
       owns: [ 'src/truncate.js', 'test/truncate.test.js' ]
     }
 e2e:
-  ticket: ''
+  ticket: 'SAN-30'
   type: test
   slug: capitalize-e2e
   brief: .factory/runs/demo9/e2e.md
