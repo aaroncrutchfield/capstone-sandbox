@@ -1,0 +1,33 @@
+milestone: demo9
+acceptance: SAN-20
+base:
+  ticket: ''
+  type: feat
+  slug: capitalize-words
+  brief: .factory/runs/demo9/base.md
+  owns: [ 'src/capitalize.js', 'test/capitalize.test.js', 'docs/behaviors/words.md' ]
+slices:
+  - {
+      ticket: '',
+      type: feat,
+      slug: title-case,
+      brief: .factory/runs/demo9/title.md,
+      owns: [ 'src/title.js', 'test/title.test.js' ]
+    }
+  - {
+      ticket: '',
+      type: feat,
+      slug: truncate-words,
+      brief: .factory/runs/demo9/truncate.md,
+      owns: [ 'src/truncate.js', 'test/truncate.test.js' ]
+    }
+e2e:
+  ticket: ''
+  type: test
+  slug: capitalize-e2e
+  brief: .factory/runs/demo9/e2e.md
+  owns: [ 'test/e2e-demo9.test.js' ]
+builder: { model: claude-opus-5-5, effort: low, budgetUsd: 3 }
+reviewer: { model: claude-opus-5-5, effort: medium, budgetUsd: 3 }
+capstone: { model: claude-opus-5-5, effort: medium, budgetUsd: 5 }
+capstonePasses: 2
