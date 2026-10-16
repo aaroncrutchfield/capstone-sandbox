@@ -12,4 +12,4 @@
 * **WORDS-010** When I chain the helpers on one sentence, the unique words, their lengths and the initials shall agree with each other (the end-to-end test).
 * **WORDS-011** When I call `sentenceWords(text)` with a string, it shall return its words with trailing punctuation (. , ! ?) removed, and \[\] for a blank string.
 * **WORDS-012** When I call `splitWords(text)` with a string, it shall split on commas as well as whitespace: `splitWords('a,b c')` gives `['a', 'b', 'c']`.
-* **WORDS-020** When I call `slugify(text)` with a string, it shall return its words (as `splitWords` gives them) lower-cased and joined with `-`, and '' for a blank string. (Added on SAN-31.)
+* **WORDS-020** When I call `slugify(text)` with a string, it shall return its words (as `splitWords` gives them) lower-cased and joined with `-`, and '' for a blank string.
