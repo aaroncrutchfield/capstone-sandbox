@@ -1,0 +1,154 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-31",
+      "type": "feat",
+      "slug": "turn-a-text-into-a",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-31.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 1,
+      "reviewers": [
+        "SAN-31-san-31-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "SAN-31-san-31-build",
+      "costs": {
+        "cloud-spike": {
+          "builders": 0.5068704,
+          "reviewers": 0.43004280000000006
+        }
+      },
+      "pr": 44,
+      "waitingOn": "PR #44 into main is green and ready to land"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-31",
+      "severity": "nit",
+      "file": "docs/behaviors/words.md",
+      "line": 15,
+      "problem": "The WORDS-020 line ends with \"(Added on SAN-31.)\". No other line in the file carries a provenance note, and git history already records where the line came from. The line is otherwise valid EARS: one \"When ... shall\", a new numeric ID, no \"so ...\" rationale.",
+      "fix": "Drop \"(Added on SAN-31.)\" so the line matches the others.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-16T14:32:59.520Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "4371eab16b88fb386f8cd1240eed491416f90144"
+      }
+    },
+    {
+      "id": "F2",
+      "slice": "SAN-31",
+      "severity": "nit",
+      "file": "src/slug.js",
+      "line": 4,
+      "problem": "slugify(null) or slugify(42) throws the raw engine error \"Cannot read properties of null (reading 'split')\", which comes from inside splitWords. countWords and wordLengths instead give a named TypeError (WORDS-003, WORDS-008). The ticket only covers string input, so this is not a failing requirement.",
+      "fix": "Leave it as it is, or later add an IF/THEN behavior with a new ID that throws TypeError(\"slugify needs a string\"), plus a test.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-16T14:32:59.520Z",
+      "end": {
+        "kind": "dropped",
+        "reason": "The ticket covers only string input, so non-string input is out of scope. If someone wants it, a later behavior with a new ID can cover it.",
+        "by": "SAN-31-san-31-review-1"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "cloud-spike",
+    "at": "2026-10-16T14:37:22.832Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-31",
+      "ticket": "SAN-31",
+      "question": "splitWords doesn't split on commas on this base, so the WORDS-020 example can't pass if slugify uses it as-is. What should I do?",
+      "answers": [
+        {
+          "label": "Fix splitWords here",
+          "then": "I also edit src/words.js to split on commas and whitespace (fixing WORDS-012) and add a WORDS-012 test, then build slugify on top of it."
+        },
+        {
+          "label": "Split commas in slugify",
+          "then": "I leave src/words.js alone; slugify splits its input on commas and whitespace itself. This drifts from 'as splitWords gives them' until WORDS-012 is fixed separately."
+        },
+        {
+          "label": "Wait for a WORDS-012 fix",
+          "then": "I stop now; someone fixes splitWords in another ticket, and this slice is cut again from the fixed main."
+        }
+      ],
+      "recommended": 0,
+      "raisedAt": "2026-10-16T14:00:54.355Z",
+      "posted": "e50213e5-8db2-4228-9378-279026e38156",
+      "answer": {
+        "text": "Good catch: the comma split isn't on main (that's SAN-18). The ticket's example now uses whitespace only; build slugify on splitWords as it is and don't touch src/words.js.",
+        "by": "factory run retry",
+        "at": "2026-10-16T14:32:07.758Z"
+      },
+      "settled": "2026-10-16T14:32:07.758Z"
+    },
+    {
+      "id": "W2",
+      "run": "SAN-31",
+      "ticket": "SAN-31",
+      "question": "PR #44 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/44) is ready to land at 4371eab16b88fb386f8cd1240eed491416f90144. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #44 at 4371eab16b88 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "4371eab16b88fb386f8cd1240eed491416f90144",
+      "raisedAt": "2026-10-16T14:34:11.483Z",
+      "posted": "69abed92-f689-4c3a-b417-748a83fd87ac",
+      "answer": {
+        "text": "land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-16T14:37:08.037Z"
+      },
+      "settled": "2026-10-16T14:37:21.389Z"
+    },
+    {
+      "id": "W3",
+      "run": "SAN-31",
+      "ticket": "SAN-31",
+      "question": "`factory land` refused PR #44: not approved; fix: get an approving review of the head, then land again (approvals counts as 1: approvals is 0 in .factory/repo.yaml (read from origin/main), but who can write to the repo can't be read (gh api GET repos/aaroncrutchfield/capstone-sandbox/collaborators?affiliation=all&per_page=100&page=1 failed: gh: Access to this GitHub API path is not permitted through this proxy. (HTTP 403)); once it can, land again); then answer land. PR #44 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/44) is ready to land at 4371eab16b88fb386f8cd1240eed491416f90144. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #44 at 4371eab16b88 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "4371eab16b88fb386f8cd1240eed491416f90144",
+      "raisedAt": "2026-10-16T14:37:20.301Z",
+      "posted": "f1d05975-8d2e-4e7a-94ba-3869756ef455"
+    }
+  ]
+}
