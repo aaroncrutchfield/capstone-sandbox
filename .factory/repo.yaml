@@ -8,4 +8,6 @@ branchPrefixes:
   - agent
   - claude
 approvals: 0
+# One owner: in a cloud container, where GitHub hides the writer list, land trusts this login (SHIP-051).
+soleWriter: aaroncrutchfield
 tracker: { kind: linear, team: SAN }
