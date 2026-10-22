@@ -1,0 +1,343 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-34",
+      "type": "feat",
+      "slug": "case-words",
+      "brief": "/home/user/capstone-sandbox/.factory/runs/case/base.md",
+      "owns": [
+        "src/case/words.js",
+        "test/case-words.test.js",
+        "docs/behaviors/words.md",
+        "README.md"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "case-san-34-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "case-san-34-build",
+      "pr": 47,
+      "costs": {
+        "vm-3bd6c2": {
+          "builders": 0.5644918,
+          "reviewers": 0.5473672
+        }
+      }
+    },
+    {
+      "ticket": "SAN-35",
+      "type": "feat",
+      "slug": "title-case",
+      "brief": "/home/user/capstone-sandbox/.factory/runs/case/title.md",
+      "owns": [
+        "src/case/title.js",
+        "test/case-title.test.js"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "case-san-35-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "case-san-35-build",
+      "pr": 48,
+      "costs": {
+        "vm-3bd6c2": {
+          "builders": 0.19102079999999996,
+          "reviewers": 0.1747256
+        }
+      }
+    },
+    {
+      "ticket": "SAN-36",
+      "type": "feat",
+      "slug": "camel-case",
+      "brief": "/home/user/capstone-sandbox/.factory/runs/case/camel.md",
+      "owns": [
+        "src/case/camel.js",
+        "test/case-camel.test.js"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "case-san-36-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "case-san-36-build",
+      "pr": 50,
+      "costs": {
+        "vm-3bd6c2": {
+          "builders": 0.2325604,
+          "reviewers": 0.1752598
+        }
+      }
+    },
+    {
+      "ticket": "SAN-37",
+      "type": "feat",
+      "slug": "snake-kebab-case",
+      "brief": "/home/user/capstone-sandbox/.factory/runs/case/snake-kebab.md",
+      "owns": [
+        "src/case/snake.js",
+        "src/case/kebab.js",
+        "test/case-snake.test.js",
+        "test/case-kebab.test.js"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "case-san-37-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "case-san-37-build",
+      "pr": 49,
+      "costs": {
+        "vm-3bd6c2": {
+          "builders": 0.20591299999999996,
+          "reviewers": 0.1457822
+        }
+      }
+    },
+    {
+      "ticket": "SAN-38",
+      "type": "test",
+      "slug": "case-e2e",
+      "brief": "/home/user/capstone-sandbox/.factory/runs/case/e2e.md",
+      "owns": [
+        "test/e2e-case.test.js"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "case-san-38-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "case-san-38-build",
+      "pr": 51,
+      "costs": {
+        "vm-3bd6c2": {
+          "builders": 0.2240044,
+          "reviewers": 0.1413938
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-35",
+      "severity": "nit",
+      "file": "src/case/title.js",
+      "line": 5,
+      "problem": "The PR summary says \"punctuation is dropped\", but `sentenceWords` only removes trailing . , ! ? from each word. Other punctuation stays, for example titleCase('it\\'s (fine)') gives \"It's (fine)\". The code matches WORDS-021; only the PR wording overstates what it does.",
+      "fix": "In the PR summary, say that trailing . , ! ? are dropped instead of all punctuation.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-22T02:20:06.454Z",
+      "end": {
+        "kind": "dropped",
+        "reason": "The diff is empty and the code matches WORDS-021. Only the PR description is slightly loose, so it isn't worth a ticket.",
+        "by": "case-san-35-review-1"
+      }
+    },
+    {
+      "id": "F2",
+      "slice": "SAN-36",
+      "severity": "nit",
+      "file": "test/case-camel.test.js",
+      "line": 6,
+      "problem": "WORDS-022 says each later word gets 'the rest lower-cased', but no test puts an upper-case letter in a later word. 'NASA' is the first word, and 'rocks' and 'really' are already lower-case, so the `.toLowerCase()` in src/case/camel.js:7 is only checked on the first word.",
+      "fix": "Add an assertion with a mixed-case later word, for example `camelCase('hello WORLD')` should give `'helloWorld'`.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-22T02:20:13.635Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "809d8f0a26d1795996e534be052fbd5a58fdeaa4"
+      }
+    },
+    {
+      "id": "F3",
+      "slice": "SAN-34",
+      "severity": "should-fix",
+      "file": "README.md",
+      "line": 49,
+      "problem": "The README doesn't say that the four conversions leave text that is already joined as one word. So `snakeCase('helloWorld')` gives `'helloworld'`, not `'hello_world'`. Punctuation inside a word also stays: `kebabCase('a,b c')` gives `'a,b-c'`. Someone reading only the README would likely expect the opposite in both cases. The ticket leaves this out of scope on purpose, so the code is right; only the docs are silent.",
+      "fix": "Add one line under the four conversions: \"Text already in camelCase or snake_case stays one word (`snakeCase('helloWorld')` gives `'helloworld'`), and only trailing `. , ! ?` are dropped.\"",
+      "from": {
+        "kind": "capstone",
+        "pass": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-22T02:23:58.432Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e"
+      }
+    },
+    {
+      "id": "F4",
+      "slice": "SAN-34",
+      "severity": "should-fix",
+      "file": "README.md",
+      "line": 49,
+      "problem": "There are now two ways to make dash-joined text, and they give different results. The existing `slugify` (src/slug.js) splits words with `splitWords`, so it keeps punctuation: `slugify('Hi, there!')` gives `'hi,-there!'`. The new `kebabCase` drops it and gives `'hi-there'`. The README lists only `kebabCase`. Separately, when the planned comma splitting (WORDS-012, specified but not yet built) lands in `splitWords`, it will quietly change the output of all four conversions, because they get their words through `sentenceWords`, which calls `splitWords`. For example, `kebabCase('a,b c')` would change from `'a,b-c'` to `'a-b-c'`.",
+      "fix": "No code change in this milestone. Add a line to CONTRIBUTING.md under Traps: \"Changing `splitWords` or `sentenceWords` changes `slugify` and all four case conversions too; rerun their tests and update the README examples. `slugify` keeps punctuation and `kebabCase` drops it, so don't treat them as the same. Learned: SAN-32 capstone. Retire: when `slugify` is removed or built on `kebabCase`.\"",
+      "from": {
+        "kind": "capstone",
+        "pass": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-22T02:23:58.432Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "vm-3bd6c2",
+    "at": "2026-10-22T02:50:24.247Z"
+  },
+  "capstone": {
+    "step": "ready",
+    "pass": 2,
+    "fixes": [
+      {
+        "owner": "SAN-34",
+        "seat": "case-san-34-build",
+        "pr": 52
+      }
+    ],
+    "head": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e",
+    "seat": "case-capstone-2",
+    "costs": {
+      "vm-3bd6c2": 0.869752
+    }
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "case",
+      "ticket": "SAN-32",
+      "question": "PR #53 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/53) is ready to land at ad7ec4d9853bf153e217c5f873ab4b224d67f59e. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #53 at ad7ec4d9853b and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e",
+      "raisedAt": "2026-10-22T02:29:37.787Z",
+      "posted": "1ba8fa55-1b51-44c5-a130-48727d2c3d00",
+      "answer": {
+        "text": "Land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-22T02:46:00.694Z"
+      },
+      "settled": "2026-10-22T02:47:07.709Z"
+    },
+    {
+      "id": "W2",
+      "run": "case",
+      "ticket": "SAN-32",
+      "question": "`factory land` refused PR #53: PR title 'milestone(case): turn a text into Title Case, camelCase, snake_case and kebab-case': 'milestone' isn't a conventional type (use one of feat, fix, docs, test, chore, refactor, perf, build, ci, style, revert); fix: retitle it as `<type>(<scope>): <outcome>`, e.g. `feat(ship): run the gate before a PR opens`; then answer land. PR #53 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/53) is ready to land at ad7ec4d9853bf153e217c5f873ab4b224d67f59e. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #53 at ad7ec4d9853b and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e",
+      "raisedAt": "2026-10-22T02:47:06.874Z",
+      "posted": "cb566bd2-4300-4686-a702-c2e57620bfc7",
+      "answer": {
+        "text": "land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-22T02:47:53.497Z"
+      },
+      "settled": "2026-10-22T02:48:18.310Z"
+    },
+    {
+      "id": "W3",
+      "run": "case",
+      "ticket": "SAN-32",
+      "question": "`factory land` refused PR #53: squash-merging PR #53: gh api PUT repos/aaroncrutchfield/capstone-sandbox/pulls/53/merge failed: gh: Pull Request is still a draft (HTTP 405); fix: check the PR on the code host, then run `factory land` again; then answer land. PR #53 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/53) is ready to land at ad7ec4d9853bf153e217c5f873ab4b224d67f59e. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #53 at ad7ec4d9853b and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e",
+      "raisedAt": "2026-10-22T02:48:17.433Z",
+      "posted": "51b4902f-12ac-45bd-9282-2725f249e4c1",
+      "answer": {
+        "text": "land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-22T02:50:09.419Z"
+      },
+      "settled": "2026-10-22T02:50:22.645Z"
+    },
+    {
+      "id": "W4",
+      "run": "case",
+      "ticket": "SAN-32",
+      "question": "landing SAN-32: its PR wasn't found; nothing landed; reopen it, then answer land. Land SAN-32 at ad7ec4d9853bf153e217c5f873ab4b224d67f59e?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #53 at ad7ec4d9853b and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "ad7ec4d9853bf153e217c5f873ab4b224d67f59e",
+      "raisedAt": "2026-10-22T02:50:21.886Z",
+      "posted": "029e4272-1f17-4129-91c6-3fae48759932"
+    }
+  ],
+  "drivingCosts": [
+    {
+      "session": "skill-trial-driver",
+      "usd": 4,
+      "how": "estimate: ~75 tool calls, ~1.2M cached input + ~40k output tokens on Opus 5.5 in the cloud driving session",
+      "machine": "vm-3bd6c2",
+      "at": "2026-10-22T02:28:00.669Z"
+    }
+  ]
+}
