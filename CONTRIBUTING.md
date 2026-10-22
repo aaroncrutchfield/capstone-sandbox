@@ -29,6 +29,8 @@ npm run test
 <!-- Cross-cutting lessons no test or comment can hold, one bullet each:
      <rule, as an instruction>. Learned: <PR or finding>. Retire: <condition, or never>. -->
 
+- Changing `splitWords` or `sentenceWords` changes `slugify` and all four case conversions too; rerun their tests and update the README examples. `slugify` keeps punctuation and `kebabCase` drops it, so don't treat them as the same. Learned: SAN-32 capstone. Retire: when `slugify` is removed or built on `kebabCase`.
+
 ## Keeping this file useful
 
 - One home per fact: link to the file that holds the detail.

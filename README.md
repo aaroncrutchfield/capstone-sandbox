@@ -28,6 +28,10 @@ import { sentenceWords } from './src/sentence.js'
 import { uniqueWords } from './src/unique.js'
 import { wordLengths } from './src/lengths.js'
 import { initials } from './src/initials.js'
+import { titleCase } from './src/case/title.js'
+import { camelCase } from './src/case/camel.js'
+import { snakeCase } from './src/case/snake.js'
+import { kebabCase } from './src/case/kebab.js'
 ```
 
 - `splitWords(text)` splits on runs of whitespace with no empty entries: `splitWords('  to be ')` gives `['to', 'be']`. Splitting on commas as well (`splitWords('a,b c')` giving `['a', 'b', 'c']`, WORDS-012) is specified but not yet built: today that call gives `['a,b', 'c']`.
@@ -38,5 +42,11 @@ import { initials } from './src/initials.js'
 - `wordLengths(text)` returns the length of each word, `[]` for a blank string, and throws a TypeError saying "wordLengths needs a string" for anything else: `wordLengths('to be')` gives `[2, 2]`.
 - `initials(text)` returns the first letter of each word, upper-cased and joined, and `''` for a blank string: `initials('ada lovelace')` gives `'AL'`.
 - `sentenceWords(text)` returns the words with trailing `. , ! ?` removed, and `[]` for a blank string: `sentenceWords('Hi, there!')` gives `['Hi', 'there']`.
+- `titleCase(text)` capitalizes every word (as `sentenceWords` gives them) and lower-cases the rest: `titleCase('hello WORLD!')` gives `'Hello World'`.
+- `camelCase(text)` joins the words with nothing, the first lower-case and each later one capitalized: `camelCase('hello WORLD!')` gives `'helloWorld'`.
+- `snakeCase(text)` lower-cases the words and joins them with `_`: `snakeCase('hello WORLD!')` gives `'hello_world'`.
+- `kebabCase(text)` lower-cases the words and joins them with `-`: `kebabCase('hello WORLD!')` gives `'hello-world'`.
+- Each of the four throws a TypeError saying "<name> needs a string" (for example "titleCase needs a string") for anything but a string.
+- Text already in camelCase or snake_case stays one word (`snakeCase('helloWorld')` gives `'helloworld'`), and only trailing `. , ! ?` are dropped.
 
-The behaviors behind these are listed in `docs/behaviors/words.md` (WORDS-001 to WORDS-012).
+The behaviors behind these are listed in `docs/behaviors/words.md` (WORDS-001 to WORDS-026).
