@@ -4,6 +4,7 @@ import { camelCase } from '../src/case/camel.js';
 
 test('WORDS-022 camelCase joins the words, first lower-case, later ones capitalized', () => {
   assert.equal(camelCase('NASA rocks, really!'), 'nasaRocksReally');
+  assert.equal(camelCase('hello WORLD'), 'helloWorld');
 });
 
 test('WORDS-022 camelCase gives an empty string for a blank string', () => {
