@@ -13,3 +13,9 @@
 * **WORDS-011** When I call `sentenceWords(text)` with a string, it shall return its words with trailing punctuation (. , ! ?) removed, and \[\] for a blank string.
 * **WORDS-012** When I call `splitWords(text)` with a string, it shall split on commas as well as whitespace: `splitWords('a,b c')` gives `['a', 'b', 'c']`.
 * **WORDS-020** When I call `slugify(text)` with a string, it shall return its words (as `splitWords` gives them) lower-cased and joined with `-`, and '' for a blank string.
+* **WORDS-021** When I call `titleCase(text)` with a string, it shall return its words (as `sentenceWords` gives them), each with its first letter upper-cased and the rest lower-cased, joined by single spaces, and '' for a blank string.
+* **WORDS-022** When I call `camelCase(text)` with a string, it shall return its words (as `sentenceWords` gives them) joined with nothing, the first all lower-case and each later one with its first letter upper-cased and the rest lower-cased, and '' for a blank string.
+* **WORDS-023** When I call `snakeCase(text)` with a string, it shall return its words (as `sentenceWords` gives them) lower-cased and joined with `_`, and '' for a blank string.
+* **WORDS-024** When I call `kebabCase(text)` with a string, it shall return its words (as `sentenceWords` gives them) lower-cased and joined with `-`, and '' for a blank string.
+* **WORDS-025** If I call `titleCase`, `camelCase`, `snakeCase` or `kebabCase` with anything but a string, then it shall throw a TypeError saying "<name> needs a string" with the name of the function called, and a later call with a string shall work.
+* **WORDS-026** When I convert one sentence with all four conversions, they shall give the same words in the same order (the end-to-end test).
