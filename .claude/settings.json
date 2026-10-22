@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "factory-cli": {
+      "source": {
+        "source": "github",
+        "repo": "aaroncrutchfield/factory-cli"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "factory@factory-cli": true
+  }
+}
