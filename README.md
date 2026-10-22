@@ -47,5 +47,6 @@ import { kebabCase } from './src/case/kebab.js'
 - `snakeCase(text)` lower-cases the words and joins them with `_`: `snakeCase('hello WORLD!')` gives `'hello_world'`.
 - `kebabCase(text)` lower-cases the words and joins them with `-`: `kebabCase('hello WORLD!')` gives `'hello-world'`.
 - Each of the four throws a TypeError saying "<name> needs a string" (for example "titleCase needs a string") for anything but a string.
+- Text already in camelCase or snake_case stays one word (`snakeCase('helloWorld')` gives `'helloworld'`), and only trailing `. , ! ?` are dropped.
 
 The behaviors behind these are listed in `docs/behaviors/words.md` (WORDS-001 to WORDS-026).
