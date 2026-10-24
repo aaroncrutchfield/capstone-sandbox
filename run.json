@@ -1,0 +1,91 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-64",
+      "type": "feat",
+      "slug": "find-the-shortest-word-in",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-64.md",
+      "owns": [
+        "**"
+      ],
+      "step": "merged",
+      "round": 1,
+      "reviewers": [
+        "SAN-64-san-64-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "SAN-64-san-64-build",
+      "pr": 54,
+      "costs": {
+        "vm-cf918b": {
+          "builders": 0.2434562,
+          "reviewers": 0.39509459999999996
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-64",
+      "severity": "nit",
+      "file": "docs/behaviors/words.md",
+      "line": 22,
+      "problem": "WORDS-027 and WORDS-028 (lines 22–23) end with \"(Added on SAN-64.)\". No other line in the file carries a provenance note, and git history already records it.",
+      "fix": "Drop the trailing \"(Added on SAN-64.)\" from both lines to match the rest of the file.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-24T03:40:28.973Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "e350c627d38e8fd05dc21cfa460a3b94ad9f81ff"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "vm-cf918b",
+    "at": "2026-10-24T03:44:23.849Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-64",
+      "ticket": "SAN-64",
+      "question": "PR #54 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/54) is ready to land at e350c627d38e8fd05dc21cfa460a3b94ad9f81ff. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #54 at e350c627d38e and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "e350c627d38e8fd05dc21cfa460a3b94ad9f81ff",
+      "raisedAt": "2026-10-24T03:41:37.684Z",
+      "posted": "dd59432c-d602-4baf-88e0-494104a36c7d",
+      "answer": {
+        "text": "land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-24T03:42:56.971Z"
+      },
+      "settled": "2026-10-24T03:43:51.876Z"
+    }
+  ],
+  "drivingCosts": [
+    {
+      "session": "cloud-thread-dart-eval-kit",
+      "usd": 0.5,
+      "how": "estimate for the acceptance driving of SAN-64 (hand-run script on ASF-197)",
+      "machine": "vm-cf918b",
+      "at": "2026-10-24T03:44:23.094Z"
+    }
+  ]
+}
