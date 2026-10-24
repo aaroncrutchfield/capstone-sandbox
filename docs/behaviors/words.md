@@ -19,3 +19,5 @@
 * **WORDS-024** When I call `kebabCase(text)` with a string, it shall return its words (as `sentenceWords` gives them) lower-cased and joined with `-`, and '' for a blank string.
 * **WORDS-025** If I call `titleCase`, `camelCase`, `snakeCase` or `kebabCase` with anything but a string, then it shall throw a TypeError saying "<name> needs a string" with the name of the function called, and a later call with a string shall work.
 * **WORDS-026** When I convert one sentence with all four conversions, they shall give the same words in the same order (the end-to-end test).
+* **WORDS-027** When I call `shortestWord(text)` with a string, it shall return the shortest of its words (as `splitWords` gives them), the first one seen on a tie, and '' for a blank string. (Added on SAN-64.)
+* **WORDS-028** If I call `shortestWord` with anything but a string, then it shall throw a TypeError saying "shortestWord needs a string", and a later call with a string shall work. (Added on SAN-64.)
