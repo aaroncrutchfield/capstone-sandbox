@@ -1,0 +1,78 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-65",
+      "type": "refactor",
+      "slug": "reversewords-and-initials-split-words",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-65.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 0,
+      "reviewers": [],
+      "ciFailures": 0,
+      "builder": "SAN-65-san-65-build",
+      "waitingOn": "the builder asks: There's no PR to open: SAN-65 was already done on main, and you agreed to close it as already done. reverseWords and initials have both taken their words from splitWords since each was added (PRs #27 and #31). The tests for reverseWords, initials and splitWords pass (6 of 6). This branch has no commits and no uncommitted changes, so ship has nothing to land. Please close SAN-65 in the tracker as already done.\nAnswer it in the slice's ticket (SAN-65 in the tracker (https://linear.app/apostletec/issue/SAN-65/refactorwords-reversewords-and-initials-split-words-in-one-place)), then run `factory run retry SAN-65 SAN-65 --note \"<what you did>\"`; the builder is given the ticket again",
+      "costs": {
+        "vm-2f0c72": {
+          "builders": 0.35901599999999995,
+          "reviewers": 0
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "vm-2f0c72",
+    "at": "2026-10-25T09:20:09.835Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-65",
+      "ticket": "SAN-65",
+      "question": "SAN-65 is already done on main: reverseWords and initials both get their words from splitWords, and their tests pass. Should I close the ticket as already done?",
+      "answers": [
+        {
+          "label": "Close",
+          "then": "No PR is opened. The ticket is closed as already done on main."
+        },
+        {
+          "label": "Keep",
+          "then": "No PR is opened. The ticket stays open so you can rescope it."
+        }
+      ],
+      "recommended": 0,
+      "raisedAt": "2026-10-25T09:18:57.140Z",
+      "posted": "e1910d14-0a39-4e32-b6b6-c382fe7cd328",
+      "answer": {
+        "text": "Yes. SAN-65 was filed only to test the light ticket shape and is already true on main. Close it as already done, with no PR.",
+        "by": "factory run retry",
+        "at": "2026-10-25T09:19:39.495Z"
+      },
+      "settled": "2026-10-25T09:19:58.725Z"
+    },
+    {
+      "id": "W2",
+      "run": "SAN-65",
+      "ticket": "SAN-65",
+      "question": "the builder asks: There's no PR to open: SAN-65 was already done on main, and you agreed to close it as already done. reverseWords and initials have both taken their words from splitWords since each was added (PRs #27 and #31). The tests for reverseWords, initials and splitWords pass (6 of 6). This branch has no commits and no uncommitted changes, so ship has nothing to land. Please close SAN-65 in the tracker as already done.\nAnswer it in the slice's ticket (SAN-65 in the tracker (https://linear.app/apostletec/issue/SAN-65/refactorwords-reversewords-and-initials-split-words-in-one-place)), then run `factory run retry SAN-65 SAN-65 --note \"<what you did>\"`; the builder is given the ticket again",
+      "answers": [
+        {
+          "label": "retry",
+          "then": "the run resumes it with your reply as its note",
+          "action": "retry"
+        },
+        {
+          "label": "hold",
+          "then": "it keeps waiting; nothing runs",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "raisedAt": "2026-10-25T09:20:07.854Z",
+      "posted": "09034f22-6471-4e4f-b10d-bafb72d16cf8"
+    }
+  ]
+}
