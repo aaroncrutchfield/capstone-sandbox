@@ -22,4 +22,4 @@
 * **WORDS-027** When I call `shortestWord(text)` with a string, it shall return the shortest of its words (as `splitWords` gives them), the first one seen on a tie, and '' for a blank string.
 * **WORDS-028** If I call `shortestWord` with anything but a string, then it shall throw a TypeError saying "shortestWord needs a string", and a later call with a string shall work.
 * **WORDS-029** When I call `vowels(text)` with a string, it shall return how many of its characters are a, e, i, o or u in either case, and 0 when there are none. (Added on SAN-66; y is not a vowel.)
-* **WORDS-030** If I call `vowels` with anything but a string, then it shall throw a TypeError saying "vowels needs a string", and a later call with a string shall work. (Added on SAN-66.)
+* **WORDS-030** If I call `vowels` with anything but a string, then it shall throw a TypeError saying "vowels needs a string". (Added on SAN-66.)
