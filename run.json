@@ -1,0 +1,122 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-66",
+      "type": "feat",
+      "slug": "count-the-vowels-in-a",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-66.md",
+      "owns": [
+        "**"
+      ],
+      "step": "merged",
+      "round": 2,
+      "reviewers": [
+        "SAN-66-san-66-review-1",
+        "SAN-66-san-66-review-2"
+      ],
+      "ciFailures": 0,
+      "builder": "SAN-66-san-66-build",
+      "pr": 56,
+      "costs": {
+        "vm-258e95": {
+          "builders": 0.27676599999999996,
+          "reviewers": 0.5837212
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-66",
+      "severity": "should-fix",
+      "file": "docs/behaviors/words.md",
+      "line": 25,
+      "problem": "behavior line not in EARS form: WORDS-030 has two \"shall\"s (\"it shall throw a TypeError ...\" and \"a later call with a string shall work\"). The builder added the second clause; the ticket's approved WORDS-030 wording has only the first. Line 24 (WORDS-029) has a single \"shall\", so it is the only other added line and it passes this check.",
+      "fix": "Use the ticket's single-shall wording: \"If I call `vowels` with anything but a string, then it shall throw a TypeError saying \\\"vowels needs a string\\\".\" To keep recovery as its own approved behavior, add a new numeric ID (e.g. WORDS-031) for it and name the recovery test with that ID. The current test can stay as it is.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-25T15:37:34.999Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "a9b028916fc96bd970918247ab43eca3a3c390ba"
+      }
+    },
+    {
+      "id": "F2",
+      "slice": "SAN-66",
+      "severity": "nit",
+      "file": "docs/behaviors/words.md",
+      "line": 24,
+      "problem": "Lines 24 and 25 end with parenthetical notes (\"(Added on SAN-66; y is not a vowel.)\" and \"(Added on SAN-66.)\"). They are not part of the EARS statement, and none of the existing lines carry provenance notes like these.",
+      "fix": "Drop the \"Added on SAN-66\" notes. If the y clarification should stay, fold it into the statement (\"... a, e, i, o or u (not y) in either case ...\").",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-25T15:37:34.999Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "a9b028916fc96bd970918247ab43eca3a3c390ba"
+      }
+    },
+    {
+      "id": "F3",
+      "slice": "SAN-66",
+      "severity": "nit",
+      "file": "test/vowels.test.js",
+      "line": 16,
+      "problem": "The WORDS-030 test name and its last assertion check that a later call with a string still works, but docs/behaviors/words.md:25 (WORDS-030) no longer says that. Round 1 suggested giving recovery its own ID, and the builder didn't add one. So the recovery check isn't tied to any behavior line, yet the PR's WORDS-030 line still lists it as part of WORDS-030. The code itself behaves correctly.",
+      "fix": "Option 1: add `* **WORDS-031** If I call `vowels` with a non-string and then with a string, then the second call shall return its vowel count.` and move the recovery assertion into a test named `WORDS-031 ...`. Option 2: leave the test as it is and drop the recovery clause from the PR's WORDS-030 line.",
+      "from": {
+        "kind": "review",
+        "round": 2
+      },
+      "recommend": "fixed",
+      "at": "2026-10-25T15:38:13.681Z",
+      "end": {
+        "kind": "dropped",
+        "reason": "Nothing changed since a9b0289. The recovery assertion still runs and passes inside the WORDS-030 test, so the behavior is tested. The only loss is that it isn't tied to its own behavior ID, which isn't worth a ticket.",
+        "by": "SAN-66-san-66-review-2"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "vm-258e95",
+    "at": "2026-10-25T22:09:08.960Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-66",
+      "ticket": "SAN-66",
+      "question": "PR #56 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/56) is ready to land at a9b028916fc96bd970918247ab43eca3a3c390ba. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #56 at a9b028916fc9 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "a9b028916fc96bd970918247ab43eca3a3c390ba",
+      "raisedAt": "2026-10-25T15:39:23.720Z",
+      "posted": "04ab89b3-0780-4d13-95a2-7b91e324a0d0",
+      "answer": {
+        "text": "land",
+        "by": "8e7cd344-9917-4ada-b17f-bd5afb1e2c3d",
+        "at": "2026-10-25T22:08:46.400Z"
+      },
+      "settled": "2026-10-25T22:09:06.892Z"
+    }
+  ]
+}
