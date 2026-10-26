@@ -17,5 +17,5 @@ test('WORDS-032 throws a TypeError for a non-string, then works with a string', 
   for (const bad of [null, undefined, 42, ['b'], {}]) {
     assert.throws(() => consonants(bad), { name: 'TypeError', message: 'consonants needs a string' });
   }
-  assert.equal(consonants('still works'), 7);
+  assert.equal(consonants('still works'), 8);
 });
