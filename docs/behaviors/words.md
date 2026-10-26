@@ -23,3 +23,5 @@
 * **WORDS-028** If I call `shortestWord` with anything but a string, then it shall throw a TypeError saying "shortestWord needs a string", and a later call with a string shall work.
 * **WORDS-029** When I call `vowels(text)` with a string, it shall return how many of its characters are a, e, i, o or u (not y) in either case, and 0 when there are none.
 * **WORDS-030** If I call `vowels` with anything but a string, then it shall throw a TypeError saying "vowels needs a string".
+* **WORDS-031** When a user calls `consonants(text)` with a string, it shall return how many of its characters are letters a to z, in either case, other than a, e, i, o and u.
+* **WORDS-032** If a user calls `consonants` with anything but a string, then it shall throw a TypeError saying "consonants needs a string".
