@@ -1,0 +1,57 @@
+{
+  "slices": [
+    {
+      "ticket": "SB-59",
+      "type": "feat",
+      "slug": "count-the-digits-in-a",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SB-59.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 1,
+      "reviewers": [
+        "SB-59-sb-59-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "SB-59-sb-59-build",
+      "pr": 60,
+      "waitingOn": "PR #60 into main is green and ready to land",
+      "costs": {
+        "vm-705a8d": {
+          "builders": 0.18094599999999997,
+          "reviewers": 0.34233359999999996
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "vm-705a8d",
+    "at": "2026-10-26T14:11:36.886Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SB-59",
+      "ticket": "SB-59",
+      "question": "PR #60 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/60) is ready to land at 8f344326d1a178d7b6c3fcb0d5a49a87dde7f92a. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #60 at 8f344326d1a1 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "8f344326d1a178d7b6c3fcb0d5a49a87dde7f92a",
+      "raisedAt": "2026-10-26T14:11:31.679Z",
+      "posted": "6418140664"
+    }
+  ]
+}
