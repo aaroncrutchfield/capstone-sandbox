@@ -1,0 +1,17 @@
+# Written by factory init: checks the PR title and body are ready to be the commit (REPO-069).
+# .factory/pr-check.mjs is the factory's check; factory doctor fails when it differs from the CLI's.
+name: pr-body
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, edited, synchronize, reopened]
+jobs:
+  pr-body:
+    # CI_RUNNER is a JSON runner label (or list), e.g. '"ubuntu-latest"' or '["self-hosted","macOS"]'.
+    runs-on: ${{ fromJSON(vars.CI_RUNNER || '"ubuntu-latest"') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node .factory/pr-check.mjs
