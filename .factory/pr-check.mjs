@@ -1,7 +1,7 @@
 // The PR title and body check (SHIP-007, 067), with no dependencies: `factory init` writes
 // this file into a repo as .factory/pr-check.mjs, and the repo's CI runs it on every PR
-// into the base branch (REPO-059). `factory doctor` fails when a repo's copy differs from
-// the CLI's (REPO-061): change it here, never in a repo's copy.
+// into the base branch (REPO-069). `factory doctor` fails when a repo's copy differs from
+// the CLI's (REPO-071): change it here, never in a repo's copy.
 //
 // Run as a script, it reads the pull request from GITHUB_EVENT_PATH and the ticket pattern
 // from .factory/repo.yaml, prints each problem with its fix and exits 1 when any is found.

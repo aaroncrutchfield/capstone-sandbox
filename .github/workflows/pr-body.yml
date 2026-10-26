@@ -1,4 +1,4 @@
-# Written by factory init: checks the PR title and body are ready to be the commit (REPO-059).
+# Written by factory init: checks the PR title and body are ready to be the commit (REPO-069).
 # .factory/pr-check.mjs is the factory's check; factory doctor fails when it differs from the CLI's.
 name: pr-body
 on:
