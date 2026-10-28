@@ -9,7 +9,7 @@ test('WORDS-035 counts the space characters in a string', () => {
 
 test('WORDS-035 tabs, newlines and other whitespace count as 0', () => {
   assert.equal(spaces(''), 0);
-  assert.equal(spaces('a\tb\nc d e'), 0);
+  assert.equal(spaces('a\tb\nc\u00a0d\u2003e'), 0);
 });
 
 test('WORDS-036 throws a TypeError for a non-string, then works with a string', () => {
