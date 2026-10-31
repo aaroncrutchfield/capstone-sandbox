@@ -1,0 +1,86 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-67",
+      "type": "feat",
+      "slug": "count-the-spaces-in-a",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-67.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 1,
+      "reviewers": [
+        "SAN-67-san-67-review-1"
+      ],
+      "ciFailures": 0,
+      "builder": "SAN-67-san-67-build",
+      "pr": 61,
+      "waitingOn": "PR #61 into main is green and ready to land",
+      "costs": {
+        "vm-11840b": {
+          "builders": 0.21416339999999998,
+          "reviewers": 0.3933636
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-67",
+      "severity": "nit",
+      "file": "test/spaces.test.js",
+      "line": 12,
+      "problem": "The string 'a\\tb\\nc d e' looks like it holds two plain spaces, but the characters between c, d and e are a raw no-break space (U+00A0) and an em space (U+2003). You can't see them in an editor or a diff, so a reader would think the assertion of 0 is wrong, and an editor that normalizes whitespace could quietly break the test.",
+      "fix": "Write them as escapes, 'a\\tb\\nc d e', the same way \\t and \\n are already written.",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-10-28T04:24:10.294Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "913d2d12ea2e1ad2675ceed0a3cb4019606ac974"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "vm-11840b",
+    "at": "2026-10-31T15:37:36.236Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-67",
+      "ticket": "SAN-67",
+      "question": "PR #61 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/61) is ready to land at 913d2d12ea2e1ad2675ceed0a3cb4019606ac974. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #61 at 913d2d12ea2e and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "913d2d12ea2e1ad2675ceed0a3cb4019606ac974",
+      "raisedAt": "2026-10-28T04:25:24.388Z",
+      "posted": "67177b2f-12d2-4e82-9d0e-c5480aa7e2ed"
+    }
+  ],
+  "drivingCosts": [
+    {
+      "session": "claude-code-f435f89b",
+      "usd": 8.590718,
+      "how": "running total reported by claude-code",
+      "machine": "vm-11840b",
+      "at": "2026-10-31T15:37:35.625Z"
+    }
+  ]
+}
