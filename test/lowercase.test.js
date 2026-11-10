@@ -17,5 +17,5 @@ test('WORDS-040 throws a TypeError for a non-string, then works with a string', 
   for (const bad of [null, undefined, 42, ['a'], {}]) {
     assert.throws(() => lowercase(bad), { name: 'TypeError', message: 'lowercase needs a string' });
   }
-  assert.equal(lowercase('route 66'), 4);
+  assert.equal(lowercase('route 66'), 5);
 });
