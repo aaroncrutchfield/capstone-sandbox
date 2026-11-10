@@ -27,3 +27,4 @@
 * **WORDS-032** If a user calls `consonants` with anything but a string, then it shall throw a TypeError saying "consonants needs a string".
 * **WORDS-033** When a user calls `digits(text)` with a string, it shall return how many of its characters are the digits 0 to 9.
 * **WORDS-034** If a user calls `digits` with anything but a string, then it shall throw a TypeError saying "digits needs a string".
+* **WORDS-037** When a user calls `uppercase(text)` with a string, it shall return how many of its characters are the letters A to Z.
