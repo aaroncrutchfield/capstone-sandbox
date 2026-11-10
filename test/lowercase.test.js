@@ -12,3 +12,10 @@ test('WORDS-039 upper-case letters, digits, punctuation and accented letters cou
   assert.equal(lowercase('ABC 123 !? \n'), 0);
   assert.equal(lowercase('éà'), 0);
 });
+
+test('WORDS-040 throws a TypeError for a non-string, then works with a string', () => {
+  for (const bad of [null, undefined, 42, ['a'], {}]) {
+    assert.throws(() => lowercase(bad), { name: 'TypeError', message: 'lowercase needs a string' });
+  }
+  assert.equal(lowercase('route 66'), 4);
+});

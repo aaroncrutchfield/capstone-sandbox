@@ -30,3 +30,4 @@
 * **WORDS-037** When a user calls `uppercase(text)` with a string, it shall return how many of its characters are the letters A to Z.
 * **WORDS-038** If a user calls `uppercase` with anything but a string, then it shall throw a TypeError saying "uppercase needs a string".
 * **WORDS-039** When a user calls `lowercase(text)` with a string, it shall return how many of its characters are the letters a to z.
+* **WORDS-040** If a user calls `lowercase` with anything but a string, then it shall throw a TypeError saying "lowercase needs a string".
