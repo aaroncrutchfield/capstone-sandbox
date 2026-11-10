@@ -1,0 +1,29 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-70",
+      "type": "feat",
+      "slug": "count-the-punctuation-marks-in",
+      "brief": "/home/aaron-crutchfield/Development/projects/capstone-sandbox/.git/factory/tickets/SAN-70.md",
+      "owns": [
+        "**"
+      ],
+      "step": "building",
+      "round": 0,
+      "reviewers": [],
+      "ciFailures": 0,
+      "builder": "SAN-70-san-70-build",
+      "costs": {
+        "Zion-48e322": {
+          "builders": 0,
+          "reviewers": 0
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "Zion-48e322",
+    "at": "2026-11-10T02:55:49.828Z"
+  }
+}
