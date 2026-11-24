@@ -2,15 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lantern Settings Screen</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&family=Inter:wght@400;500&display=swap">
+  <style>
+    :root { color-scheme: light; --bg: #eef2f6; --card: #ffffff; --fg: #17202b; --muted: #5a6778; --line: #d6dde6; --accent: #1f6feb; --on: #1f6feb; --off: #b8c2cf;
+      --display: "Space Grotesk", system-ui, sans-serif; --body: Inter, system-ui, sans-serif; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f141a; --card: #171e27; --fg: #e6ebf1; --muted: #9aa7b7; --line: #2a3440; --accent: #6ea8ff; --on: #6ea8ff; --off: #3a4554; color-scheme: dark } }
+    :root[data-theme="dark"] { --bg: #0f141a; --card: #171e27; --fg: #e6ebf1; --muted: #9aa7b7; --line: #2a3440; --accent: #6ea8ff; --on: #6ea8ff; --off: #3a4554; color-scheme: dark }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); padding-block: 2rem;
+      padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    main { max-width: 24rem; margin-inline: auto; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    header { padding: 1.25rem 1.25rem .75rem; }
+    h1 { font-family: var(--display); font-size: 1.5rem; font-weight: 600; margin: 0; text-wrap: balance; }
+    header p { margin: .25rem 0 0; color: var(--muted); font-size: .875rem; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: .9rem 1.25rem; border-top: 1px solid var(--line); }
+    li div { min-width: 0; }
+    li strong { display: block; font-weight: 500; }
+    li .helper { display: block; color: var(--muted); font-size: .8125rem; margin-top: .15rem; }
+    .switch { position: relative; flex: none; display: block; width: 2.75rem; height: 1.5rem; cursor: pointer; }
+    .switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+    .switch .track { display: block; width: 100%; height: 100%; border-radius: 999px; background: var(--off); position: relative; pointer-events: none; }
+    .switch .track::after { content: ""; position: absolute; top: .1875rem; left: .1875rem; width: 1.125rem; height: 1.125rem; border-radius: 50%; background: var(--card); transition: left .15s ease; }
+    .switch input:checked + .track { background: var(--on); }
+    .switch input:checked + .track::after { left: 1.4375rem; }
+    .switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
+    footer { padding: 1rem 1.25rem; border-top: 1px solid var(--line); }
+    button { width: 100%; font: 500 1rem var(--body); color: #fff; background: var(--accent); border: 0; border-radius: 10px; padding: .75rem; cursor: pointer; }
+    button:hover { filter: brightness(1.08); }
+    button:active { filter: brightness(.92); }
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
 </head>
 <body>
-  <h1>Settings</h1>
-  <form>
-    <label><input type="checkbox" name="notifications" checked> Notifications</label><br>
-    <label><input type="checkbox" name="sync"> Sync over cellular</label><br>
-    <label><input type="checkbox" name="dark"> Dark mode</label>
-  </form>
+  <main>
+    <header>
+      <h1>Harbor Lantern Settings</h1>
+      <p>Choose how the lantern app behaves on this phone.</p>
+    </header>
+    <ul>
+      <li>
+        <div><strong id="notifications-label">Notifications</strong><span class="helper" id="notifications-help">Alerts when a tide warning is issued</span></div>
+        <label class="switch"><input type="checkbox" role="switch" name="notifications" checked aria-labelledby="notifications-label" aria-describedby="notifications-help"><span class="track"></span></label>
+      </li>
+      <li>
+        <div><strong id="sync-label">Sync over cellular</strong><span class="helper" id="sync-help">Uses mobile data when Wi-Fi is off</span></div>
+        <label class="switch"><input type="checkbox" role="switch" name="sync" aria-labelledby="sync-label" aria-describedby="sync-help"><span class="track"></span></label>
+      </li>
+      <li>
+        <div><strong id="dark-label">Dark mode</strong><span class="helper" id="dark-help">Follows the phone unless set here</span></div>
+        <label class="switch"><input type="checkbox" role="switch" name="dark" aria-labelledby="dark-label" aria-describedby="dark-help"><span class="track"></span></label>
+      </li>
+    </ul>
+    <footer><button type="button">Save settings</button></footer>
+  </main>
 </body>
 </html>
