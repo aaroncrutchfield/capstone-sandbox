@@ -33,3 +33,8 @@ test('WEB-005 the settings screen shows its three switch rows with label, helper
   })
 })
 
+test('WEB-006 the settings screen ends with a Save settings button', async () => {
+  const html = await settings()
+  assert.match(html, /<footer>\s*<button[^>]*>Save settings<\/button>\s*<\/footer>\s*<\/main>/)
+})
+
