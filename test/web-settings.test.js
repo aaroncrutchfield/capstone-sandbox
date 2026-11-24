@@ -21,6 +21,13 @@ test('WEB-004 the settings screen shows the heading and the line under it', asyn
   assert.match(html, /<h1>Harbor Lantern Preferences<\/h1>\s*<p>Choose how the lantern app behaves on this phone\.<\/p>/)
 })
 
+test('WEB-004 the screen heading matches the design copy saved under docs/design', async () => {
+  const design = await readFile(new URL('../docs/design/tickets/SAN-74/artifact/index.html', import.meta.url), 'utf8')
+  const heading = html => html.match(/<h1>([^<]*)<\/h1>/)?.[1]
+  assert.ok(heading(design), 'design copy has no heading')
+  assert.equal(heading(await settings()), heading(design))
+})
+
 test('WEB-005 the settings screen shows its three switch rows with label, helper text and state', async () => {
   const html = await settings()
   const found = rows.map(row => html.match(new RegExp(`<label[^>]*>(?:(?!</label>).)*name="${row.name}"(?:(?!</label>).)*</label>`, 's'))?.[0])
