@@ -12,3 +12,5 @@ approvals: 0
 soleWriter: aaroncrutchfield
 tracker: { kind: linear, team: SAN }
 baseBranch: main
+# Hands-on runs start the settings screen and drive it in a browser (RUN-100).
+handsOn: { start: node web/serve.mjs, drive: playwright, url: "http://localhost:4173/settings.html" }
