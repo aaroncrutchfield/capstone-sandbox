@@ -26,6 +26,17 @@
     header { padding: 1.25rem 1.25rem .75rem; }
     h1 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; margin: 0; text-wrap: balance; }
     header p { margin: .25rem 0 0; color: var(--muted); font-size: .875rem; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li label { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: .9rem 1.25rem; border-top: 1px solid var(--line); cursor: pointer; }
+    li strong { display: block; font-weight: 500; }
+    .help { display: block; color: var(--muted); font-size: .8125rem; margin-top: .15rem; }
+    .switch { position: relative; flex: none; width: 2.75rem; height: 1.5rem; }
+    .switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+    .switch span { position: absolute; inset: 0; border-radius: 999px; background: var(--off); pointer-events: none; }
+    .switch span::after { content: ""; position: absolute; top: .1875rem; left: .1875rem; width: 1.125rem; height: 1.125rem; border-radius: 50%; background: var(--card); transition: left .15s; }
+    .switch input:checked + span { background: var(--on); }
+    .switch input:checked + span::after { left: 1.4375rem; }
+    .switch input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -34,11 +45,26 @@
       <h1>Harbor Lantern Settings</h1>
       <p>Choose how the lantern app behaves on this phone.</p>
     </header>
-    <form>
-      <label><input type="checkbox" name="notifications" checked> Notifications</label><br>
-      <label><input type="checkbox" name="sync"> Sync over cellular</label><br>
-      <label><input type="checkbox" name="dark"> Dark mode</label>
-    </form>
+    <ul>
+      <li>
+        <label>
+          <span><strong>Notifications</strong><span class="help">Alerts when a tide warning is issued</span></span>
+          <span class="switch"><input type="checkbox" role="switch" name="notifications" checked><span></span></span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <span><strong>Sync over cellular</strong><span class="help">Uses mobile data when Wi-Fi is off</span></span>
+          <span class="switch"><input type="checkbox" role="switch" name="sync"><span></span></span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <span><strong>Dark mode</strong><span class="help">Follows the phone unless set here</span></span>
+          <span class="switch"><input type="checkbox" role="switch" name="dark"><span></span></span>
+        </label>
+      </li>
+    </ul>
   </main>
 </body>
 </html>
