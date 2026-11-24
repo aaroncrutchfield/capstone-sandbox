@@ -2,15 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Harbor Lantern Settings</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&family=Inter:wght@400;500&display=swap">
+  <style>
+    :root {
+      --bg: #eef2f6; --card: #ffffff; --fg: #17202b; --muted: #5a6778; --line: #d6dde6;
+      --accent: #1f6feb; --on: #1f6feb; --off: #b8c2cf;
+      --display: "Space Grotesk", system-ui, sans-serif; --body: Inter, system-ui, sans-serif;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #0f141a; --card: #171e27; --fg: #e6ebf1; --muted: #9aa7b7; --line: #2a3440; --accent: #6ea8ff; --on: #6ea8ff; --off: #3a4554; color-scheme: dark }
+    }
+    :root[data-theme="dark"] { --bg: #0f141a; --card: #171e27; --fg: #e6ebf1; --muted: #9aa7b7; --line: #2a3440; --accent: #6ea8ff; --on: #6ea8ff; --off: #3a4554; color-scheme: dark }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body);
+      padding-block: 2rem;
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+    }
+    main { max-width: 24rem; margin-inline: auto; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    header { padding: 1.25rem 1.25rem .75rem; }
+    h1 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; margin: 0; text-wrap: balance; }
+    header p { margin: .25rem 0 0; color: var(--muted); font-size: .875rem; }
+  </style>
 </head>
 <body>
-  <h1>Settings</h1>
-  <form>
-    <label><input type="checkbox" name="notifications" checked> Notifications</label><br>
-    <label><input type="checkbox" name="sync"> Sync over cellular</label><br>
-    <label><input type="checkbox" name="dark"> Dark mode</label>
-  </form>
+  <main>
+    <header>
+      <h1>Harbor Lantern Settings</h1>
+      <p>Choose how the lantern app behaves on this phone.</p>
+    </header>
+    <form>
+      <label><input type="checkbox" name="notifications" checked> Notifications</label><br>
+      <label><input type="checkbox" name="sync"> Sync over cellular</label><br>
+      <label><input type="checkbox" name="dark"> Dark mode</label>
+    </form>
+  </main>
 </body>
 </html>
