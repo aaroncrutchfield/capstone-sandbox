@@ -1,6 +1,6 @@
 # SAN-74 design spec
 
-Link: https://claude.ai/artifact/GrMvMNbXKvHZWgETXzUGBQ (version 1795540068-072a, saved as-is in `artifact/index.html`)
+Link: https://claude.ai/artifact/GrMvMNbXKvHZWgETXzUGBQ (version 1795541631-44fb, saved as-is in `artifact/index.html`)
 
 ## Screens
 
@@ -16,7 +16,7 @@ Layout and hierarchy
 - Footer: padding 1rem 1.25rem, 1px `--line` top border; button full width of the card's content.
 
 Copy (exact)
-- Heading: `Harbor Lantern Settings`
+- Heading: `Harbor Lantern Preferences`
 - Line under it: `Choose how the lantern app behaves on this phone.`
 - Row 1: `Notifications` / `Alerts when a tide warning is issued` — **on**
 - Row 2: `Sync over cellular` / `Uses mobile data when Wi-Fi is off` — **off**
