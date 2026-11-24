@@ -1,0 +1,33 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-72",
+      "type": "feat",
+      "slug": "the-settings-screen-matches-its",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-72.md",
+      "owns": [
+        "**"
+      ],
+      "step": "ci",
+      "round": 1,
+      "reviewers": [
+        "SAN-72-san-72-review-1"
+      ],
+      "ciFailures": 0,
+      "proof": "tests",
+      "builder": "SAN-72-san-72-build",
+      "pr": 65,
+      "costs": {
+        "vm-cbf010": {
+          "builders": 0.03283576,
+          "reviewers": 0.43115820000000005
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "vm-cbf010",
+    "at": "2026-11-24T17:00:53.088Z"
+  }
+}
