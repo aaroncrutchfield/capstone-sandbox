@@ -18,7 +18,7 @@ test('the settings screen has one heading and its three switches', async () => {
 
 test('WEB-004 the settings screen shows the heading and the line under it', async () => {
   const html = await settings()
-  assert.match(html, /<h1>Harbor Lantern Settings<\/h1>\s*<p>Choose how the lantern app behaves on this phone\.<\/p>/)
+  assert.match(html, /<h1>Harbor Lantern Preferences<\/h1>\s*<p>Choose how the lantern app behaves on this phone\.<\/p>/)
 })
 
 test('WEB-005 the settings screen shows its three switch rows with label, helper text and state', async () => {
