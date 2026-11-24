@@ -1,0 +1,63 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-73",
+      "type": "feat",
+      "slug": "the-settings-screen-matches-its",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-73.md",
+      "owns": [
+        "**"
+      ],
+      "step": "ci",
+      "round": 1,
+      "reviewers": [
+        "SAN-73-san-73-review-1"
+      ],
+      "ciFailures": 0,
+      "proof": "sim",
+      "builder": "SAN-73-san-73-build",
+      "pr": 66,
+      "costs": {
+        "vm-cbf010": {
+          "builders": 0.023598459999999998,
+          "reviewers": 0.22031280000000003
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "vm-cbf010",
+    "at": "2026-11-24T17:07:27.029Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-73",
+      "ticket": "SAN-73",
+      "question": "PR #66 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/66) is ready to land at 39ed04b0f2521b581cd27bd27f9c2a3b535bf3fd. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #66 at 39ed04b0f252 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "39ed04b0f2521b581cd27bd27f9c2a3b535bf3fd",
+      "raisedAt": "2026-11-24T17:06:07.617Z",
+      "posted": "a8e2f077-fee7-434c-9af5-a40fcae6b3c7",
+      "answer": {
+        "text": "Trial of the design check (ASF-439 acceptance step 2): make no change under web/ this round. The owner changed the design after this build and is testing that the design check catches it; leave the screen exactly as it is and finish.",
+        "by": "factory run retry",
+        "at": "2026-11-24T17:06:31.199Z"
+      },
+      "settled": "2026-11-24T17:07:09.639Z"
+    }
+  ]
+}
