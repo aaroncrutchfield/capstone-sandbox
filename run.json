@@ -1,0 +1,53 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-75",
+      "type": "feat",
+      "slug": "the-settings-screen-matches-its",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-75.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 0,
+      "reviewers": [],
+      "ciFailures": 0,
+      "proof": "sim",
+      "waitingOn": "SAN-75: the designer couldn't open the design link https://claude.ai/artifact/Zq9DeadLinkNoOneOwns00 (The Artifact tool's read of https://claude.ai/artifact/Zq9DeadLinkNoOneOwns00 was refused with \"not an artifact URL\". Its ID doesn't have the form of an artifact ID, so the link doesn't point to an artifact this seat can read.); no builder started. Share the artifact so a seat can open it, or put a link that opens on the ticket's `Design:` line (or `Design: none`), then run `factory run retry SAN-75 SAN-75 --note \"<what you did>\"`",
+      "costs": {
+        "vm-cbf010": {
+          "builders": 0,
+          "reviewers": 0
+        }
+      }
+    }
+  ],
+  "findings": [],
+  "driver": {
+    "machine": "vm-cbf010",
+    "at": "2026-11-24T17:54:53.668Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-75",
+      "ticket": "SAN-75",
+      "question": "SAN-75: the designer couldn't open the design link https://claude.ai/artifact/Zq9DeadLinkNoOneOwns00 (The Artifact tool's read of https://claude.ai/artifact/Zq9DeadLinkNoOneOwns00 was refused with \"not an artifact URL\". Its ID doesn't have the form of an artifact ID, so the link doesn't point to an artifact this seat can read.); no builder started. Share the artifact so a seat can open it, or put a link that opens on the ticket's `Design:` line (or `Design: none`), then run `factory run retry SAN-75 SAN-75 --note \"<what you did>\"`",
+      "answers": [
+        {
+          "label": "retry",
+          "then": "the run resumes it with your reply as its note",
+          "action": "retry"
+        },
+        {
+          "label": "hold",
+          "then": "it keeps waiting; nothing runs",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "raisedAt": "2026-11-24T17:54:51.181Z",
+      "posted": "9184eb0f-6836-43c6-a62b-84f10c67ce12"
+    }
+  ]
+}
