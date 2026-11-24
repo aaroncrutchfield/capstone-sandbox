@@ -1,0 +1,125 @@
+{
+  "slices": [
+    {
+      "ticket": "SAN-74",
+      "type": "feat",
+      "slug": "the-settings-screen-matches-its",
+      "brief": "/home/user/capstone-sandbox/.git/factory/tickets/SAN-74.md",
+      "owns": [
+        "**"
+      ],
+      "step": "needs-owner",
+      "round": 3,
+      "reviewers": [
+        "SAN-74-san-74-review-1",
+        "SAN-74-san-74-review-2",
+        "SAN-74-san-74-review-3"
+      ],
+      "ciFailures": 0,
+      "proof": "sim",
+      "builder": "SAN-74-san-74-build",
+      "pr": 67,
+      "waitingOn": "PR #67 into main is green and ready to land at 17835d5cb84049c55e4a5a0fb7188c28001eae32",
+      "costs": {
+        "vm-cbf010": {
+          "builders": 0.04503489000000001,
+          "reviewers": 0.7891680000000001
+        }
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "slice": "SAN-74",
+      "severity": "blocking",
+      "file": "web/settings.html",
+      "line": 45,
+      "problem": "I opened http://localhost:4173/settings.html in Chromium at phone width (390×844). The heading reads \"Harbor Lantern Settings\" (screenshot step2-heading.png, video WEB-004.webm). The design artifact linked from the ticket (https://claude.ai/artifact/GrMvMNbXKvHZWgETXzUGBQ, read just now) has the heading \"Harbor Lantern Preferences\". WEB-004 says the screen shall show the heading its design shows, so the screen fails WEB-004 against the live design. It does pass acceptance step 2, which says \"Harbor Lantern Settings\". The ticket contradicts itself, and no build can satisfy both. Everything else matches the design and the acceptance script. The line under the heading is \"Choose how the lantern app behaves on this phone.\" The three switch rows have the design's labels and helper text: Notifications is on, and Sync over cellular and Dark mode are off. The switches toggle when clicked. The card ends with a Save settings button that fills the footer (316px of 316px). There is no horizontal scroll and no console errors.",
+      "fix": "The ticket owner should say which heading is right. If the design is right, change the h1 in web/settings.html (and its WEB-004 test) to \"Harbor Lantern Preferences\". If the acceptance script is right, change the design artifact's heading back to \"Harbor Lantern Settings\". Then the screen, the design and step 2 all agree.",
+      "from": {
+        "kind": "hands-on",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-11-24T17:34:35.875Z",
+      "end": {
+        "kind": "fixed",
+        "ref": "2443e42fb18f1b76fbf7aa186cd0214d39e431ff"
+      }
+    },
+    {
+      "id": "F2",
+      "slice": "SAN-74",
+      "severity": "blocking",
+      "file": "docs/design/tickets/SAN-74/artifact/index.html",
+      "line": 30,
+      "problem": "PR flag misstates the facts: the 'Heading follows the live design' flag says the ticket's acceptance step 2 said \"Settings\" and that the copy saved under docs/design still says Settings. Neither is true. Step 2 says only \"The heading reads what the design's heading reads\". Commit 9fdf7dd re-saved the design at version 1795541631-44fb, so docs/design/tickets/SAN-74/artifact/index.html:30 now reads \"Harbor Lantern Preferences\", the same as the live artifact (checked) and web/settings.html:49. No other PR line has this problem: the WEB-004/005/006 and behaviors-file claims all hold in the diff, and the targeted tests pass.",
+      "fix": "Rewrite or drop the flag in the PR body. For example: \"The design's heading changed from Settings to Preferences during the run; the saved copy under docs/design was re-saved at the new version and the screen follows it.\"",
+      "from": {
+        "kind": "review",
+        "round": 1
+      },
+      "recommend": "fixed",
+      "at": "2026-11-24T17:46:53.951Z",
+      "impact": "The owner reads that the saved design copy is out of date and that the ticket asked for a different heading, when neither is so, and may spend time fixing a problem that doesn't exist.",
+      "end": {
+        "kind": "fixed",
+        "ref": "17835d5cb84049c55e4a5a0fb7188c28001eae32"
+      }
+    }
+  ],
+  "driver": {
+    "machine": "vm-cbf010",
+    "at": "2026-11-24T17:51:42.891Z"
+  },
+  "waits": [
+    {
+      "id": "W1",
+      "run": "SAN-74",
+      "ticket": "SAN-74",
+      "question": "Which heading should the settings screen show: \"Harbor Lantern Preferences\" (the live design) or \"Harbor Lantern Settings\" (the ticket's acceptance step 2)?",
+      "answers": [
+        {
+          "label": "Preferences",
+          "then": "The screen's heading and its WEB-004 test change to Preferences, which matches the live design. The acceptance script's step 2 needs updating to match."
+        },
+        {
+          "label": "Settings",
+          "then": "The design artifact's heading is changed back to Settings, so the ticket, the screen and the design agree. The screen stays as it is."
+        }
+      ],
+      "recommended": 0,
+      "raisedAt": "2026-11-24T17:34:46.085Z",
+      "posted": "10b1050e-d749-4c10-ae01-80287b60b871",
+      "answer": {
+        "text": "Preferences: the design at the link is the reference, so the screen shows Harbor Lantern Preferences. Acceptance step 2 now reads 'the heading the design shows', so it no longer names a heading. Update the heading and its test.",
+        "by": "factory run retry",
+        "at": "2026-11-24T17:44:13.780Z"
+      },
+      "settled": "2026-11-24T17:44:52.559Z"
+    },
+    {
+      "id": "W2",
+      "run": "SAN-74",
+      "ticket": "SAN-74",
+      "question": "PR #67 (https://github.com/aaroncrutchfield/capstone-sandbox/pull/67) is ready to land at 17835d5cb84049c55e4a5a0fb7188c28001eae32. Land it?",
+      "answers": [
+        {
+          "label": "land",
+          "then": "the run lands PR #67 at 17835d5cb840 and ends",
+          "action": "land"
+        },
+        {
+          "label": "hold",
+          "then": "the PR stays open as it is; nothing lands",
+          "action": "hold"
+        }
+      ],
+      "recommended": 0,
+      "landHead": "17835d5cb84049c55e4a5a0fb7188c28001eae32",
+      "raisedAt": "2026-11-24T17:50:11.258Z",
+      "posted": "78498c30-ad23-4327-a14d-7923007feebe"
+    }
+  ]
+}
